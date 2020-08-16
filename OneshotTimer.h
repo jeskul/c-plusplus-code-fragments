@@ -14,6 +14,12 @@ class OneshotTimer
 {
 public:
     OneshotTimer();
+
+    OneshotTimer(const OneshotTimer& other) = delete;
+    OneshotTimer(OneshotTimer&& other) = delete;
+    OneshotTimer& operator=(const OneshotTimer& other) = delete;
+    OneshotTimer& operator=(OneshotTimer&& other) = delete;
+
     virtual ~OneshotTimer();
 
     void start(std::chrono::milliseconds timerDuration, TimeoutFunction callbackFunction);

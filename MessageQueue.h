@@ -10,7 +10,11 @@ template <class T> class MsgQueue
 {
 public:
   MsgQueue() = default;
-  virtual ~MsgQueue() {}
+  MsgQueue(const MsgQueue& other) = delete;
+  MsgQueue(MsgQueue&& other) = delete;
+  MsgQueue& operator=(const MsgQueue& other) = delete;
+  MsgQueue& operator=(MsgQueue&& other) = delete;
+  virtual ~MsgQueue() = default;
 
   void send(T msg)
   {
